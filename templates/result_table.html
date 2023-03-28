@@ -1,0 +1,16 @@
+<table>
+	<thead>
+		<tr>
+			<th>Text</th>
+			<th>Sentiment</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for row in rows %}
+		<tr>
+			<td>{{ row[0] }}</td>
+			<td>{{ row[1] }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>

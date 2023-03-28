@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sentiment Analysis Results</title>
+</head>
+<body>
+	<h1>Sentiment Analysis Results</h1>
+    <img src="{{ url_for('static', filename='sentiment_distribution.png') }}" alt="Sentiment Distribution">
+	{{ tables[0]|safe }}
+</body>
+</html>
