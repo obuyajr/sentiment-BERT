@@ -1,0 +1,77 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(60deg, rgba(165, 42, 42, .3), rgba(255, 255, 255, .3));
+}
+.main{
+    position: absolute;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 20px;
+    background: linear-gradient(60deg, white, brown);
+    transition: 1s;
+    
+}
+.main:hover{
+    box-shadow:  50px 30px 10px rgba(22, 28, 34, 0.3);
+    scale: 1.02;
+}
+.main .title h1{
+    text-align: center;
+    color: white;
+    padding: 15px;
+}
+.main .form form{
+    height: 300px;
+    justify-content: space-evenly;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.main .form form label, input{
+    margin: 5px;
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.main .form form label{
+    border: none;
+}
+#file{
+    border: 2px black ridge;
+    
+    border-radius: 20px;
+    transition: .5s;
+}
+#file:hover{
+    transform: scale(1.02);
+    box-shadow:  50px 15px 10px rgba(22, 28, 34, 0.3);
+    background: green;
+}
+#btn{
+    width: 30%;
+    border-radius: 20px;
+    align-self: center;
+    padding: 10px;
+    /* border: 5px black ridge; */
+    transition: .5s;
+    border: 1px solid black;
+    background: none;
+}
+#btn:hover{
+    background-color: green;
+    color: white;
+    transform: scale(1.12);
+    border: none;
+    box-shadow:  30px 15px 10px rgba(22, 28, 34, 0.3);}
