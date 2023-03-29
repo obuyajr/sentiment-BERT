@@ -15,3 +15,6 @@ You can install these dependencies using pip. For example:
 
 Usage
 The main script for performing sentiment analysis is sentiment_analysis.py. This script takes a CSV file containing text data and outputs a CSV file with sentiment labels (positive, negative, or neutral) for each text sample.
+
+Acknowledgments
+This code is based on the Hugging Face Transformers library and the PyTorch tutorials. Thanks to the developers of these libraries for their contributions to the NLP community.
