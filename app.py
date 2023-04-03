@@ -30,7 +30,7 @@ def predict():
     df['sentiment'] = predicted.tolist()
     df['sentiment'] = df['sentiment'].replace({-1: 'neutral', 0: 'negative', 1: 'positive'})  
    
-      
+    
       # draw a bar chart of the sentiment distribution
     sentiment_counts = df['sentiment'].value_counts()
     fig, ax = plt.subplots()
