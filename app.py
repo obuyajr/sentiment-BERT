@@ -16,6 +16,8 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 def home():
     return render_template('home.html')
 
+
+
 # define the predict page
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -26,8 +28,9 @@ def predict():
     outputs = model(**inputs)
     _, predicted = torch.max(outputs.logits, dim=1)
     df['sentiment'] = predicted.tolist()
-    df['sentiment'] = df['sentiment'].replace({0: 'negative', 1: 'positive'})
-    
+    df['sentiment'] = df['sentiment'].replace({-1: 'neutral', 0: 'negative', 1: 'positive'})  
+   
+      
       # draw a bar chart of the sentiment distribution
     sentiment_counts = df['sentiment'].value_counts()
     fig, ax = plt.subplots()
