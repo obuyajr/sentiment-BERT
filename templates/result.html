@@ -3,9 +3,16 @@
 <head>
 	<title>Sentiment Analysis Results</title>
 </head>
+<style>
+	body{
+		background: linear-gradient(60deg, white, brown);
+	}
+</style>
 <body>
 	<h1>Sentiment Analysis Results</h1>
-    <img src="{{ url_for('static', filename='sentiment_distribution.png') }}" alt="Sentiment Distribution">
+   
 	{{ tables[0]|safe }}
+
+	<img src="{{ url_for('static', filename='sentiment_distribution.png') }}" alt="Sentiment Distribution">
 </body>
 </html>

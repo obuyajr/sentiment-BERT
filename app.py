@@ -20,8 +20,8 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     file = request.files['file']
-    df = pd.read_csv(file,usecols=['Id','Score','Text'])
-    texts = df['Text'].tolist()
+    df = pd.read_csv(file,usecols=['product_name','Rate','Summary'])
+    texts = df['Summary'].tolist()
     inputs = tokenizer(texts, padding=True, truncation=True, return_tensors="pt")
     outputs = model(**inputs)
     _, predicted = torch.max(outputs.logits, dim=1)
