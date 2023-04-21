@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import pandas as pd
@@ -16,7 +16,24 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 def home():
     return render_template('home.html')
 
+#
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Handle login form submission
+        username = request.form['username']
+        password = request.form['password']
+        # Authenticate user
+        if authenticate_user(username, password):
+            return redirect(url_for('dashboard'))
+        else:
+            error = 'Invalid username or password. Please try again.'
+            return render_template('login.html', error=error)
+    else:
+        # Display login form
+        return render_template('login.html')
 
+#
 
 # define the predict page
 @app.route('/predict', methods=['POST'])
@@ -43,6 +60,8 @@ def predict():
     plt.savefig('static/sentiment_distribution.png')
     
     return render_template('result.html', tables=[df.to_html(classes='data', header="true")])
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
