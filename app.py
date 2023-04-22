@@ -11,27 +11,29 @@ model_name = 'distilbert-base-uncased-finetuned-sst-2-english'
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
+#login page
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+#handle submission
+@app.route('/login', methods=['POST'])
+def login_post():
+    email = request.form['email']
+    password = request.form['password']
+
+    # Add code here to authenticate the user
+
+    return 'Email: {}, Password: {}'.format(email, password)
+
+#
+
 # define the home page
 @app.route('/')
 def home():
     return render_template('home.html')
 
-#
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        # Handle login form submission
-        username = request.form['username']
-        password = request.form['password']
-        # Authenticate user
-        if authenticate_user(username, password):
-            return redirect(url_for('dashboard'))
-        else:
-            error = 'Invalid username or password. Please try again.'
-            return render_template('login.html', error=error)
-    else:
-        # Display login form
-        return render_template('login.html')
+
 
 #
 
