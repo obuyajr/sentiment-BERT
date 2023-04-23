@@ -16,17 +16,8 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 def login():
     return render_template('login.html')
 
-#handle submission
-@app.route('/login', methods=['POST'])
-def login_post():
-    email = request.form['email']
-    password = request.form['password']
 
-    # Add code here to authenticate the user
 
-    return 'Email: {}, Password: {}'.format(email, password)
-
-#
 
 # define the home page
 @app.route('/')
